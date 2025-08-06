@@ -49,12 +49,12 @@ const db = mysql.createPool({
   },
 });
 
-db.connect((err) => {
+db.query("SELECT 1", (err) => {
   if (err) {
-    console.error("Database connection failed:", err.stack);
-    return;
+    console.error("Database connection failed:", err);
+  } else {
+    console.log("Connected to MySQL database.");
   }
-  console.log("Connected to MySQL database.");
 });
 
 // File uploads
